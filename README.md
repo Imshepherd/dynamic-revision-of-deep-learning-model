@@ -4,7 +4,7 @@ Dynamic revision of deep learning model (DLM) is a method that use personal pre-
 
 ![procedure_of_blup](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/docs/images/procedure_of_blup.png "Procedure of BLUP")
 
-The DLM predictions via ECGs is revised with the personal best linear unbiased prediction (BLUP) on follow-up ECGs. The personal BLUP is calculated by the parameters from LMMs, the previous DLM predictions and the corresponding ground truth. The black box indicated the dynamic revision of DLM prediction. The detail of method and results are presented in:<br>
+The DLM predictions via ECGs is revised with the personal best linear unbiased prediction (BLUP) on follow-up ECGs. The personal BLUP is calculated by the parameters from LMMs, the previous DLM predictions, and the corresponding ground truth. The black box indicated the dynamic revision of DLM prediction. The detail of method and results are presented in:<br>
 
   * YS Lou and C Lin, "Dynamic deep learning algorithm prediction for patients with multiple visits in electrocardiogram analysis", submitted to journal in November 2021.
     
@@ -13,7 +13,7 @@ The DLM predictions via ECGs is revised with the personal best linear unbiased p
   * [R](https://www.r-project.org/) and [Rstudio (not necessary)](https://www.rstudio.com/)
   * [lme4](https://cran.r-project.org/web/packages/lme4/index.html)
 
-You need to have `lme4` and its dependencies installed in order to construct LMM. You can install `lme4` by running the following line in your R console:
+You need to have `lme4` and its dependencies installed to construct LMM. You can install `lme4` by running the following line in your R console:
 
 ```R
 install.packages("lme4", dependencies = TRUE)
@@ -21,9 +21,9 @@ install.packages("lme4", dependencies = TRUE)
 
 # Usage
 
-The example code can be found from ['code/dynamic_revision.R'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/code/dynamic_revision.R), and the performance is summarized as following:
+The example code can be found in ['code/dynamic_revision.R'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/code/dynamic_revision.R), and the performance is summarized as following:
 
-The functions of constructing LMM, calculating BLUP, and dynamic revision can been found in ['code/personal_blup.R'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/code/personal_blup.R).
+The function of constructing LMM, calculating BLUP, and dynamic revision can be found in ['code/personal_blup.R'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/code/personal_blup.R).
   
 # Example data
   
