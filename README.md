@@ -1,12 +1,12 @@
 # Dynamic Revision of Deep Learning Model
 
-Dynamic revision of deep learning model (DLM) is a method that use personal pre-annotated electrocardiograms (ECGs) for enhancing the accuracy in patients with multiple visits. This repository contains de-identified data and code for the two parts of this method. The first part is to construct the linear mixed model (LMM) to obtain the parameters for dynamic revision. The second part is the dynamic revision of DLM prediction, which is illustrated as below:<br>
+Dynamic revision of deep learning model (DLM) is a method that use personal pre-annotated electrocardiograms (ECGs) for enhancing the accuracy in patients with multiple visits. This repository contains de-identified data and code for the two parts of this method. The first part is to construct the linear mixed model (LMM) to obtain the parameters for the dynamic revision. The second part is the dynamic revision of DLM prediction, which is illustrated as below:<br>
 
 ![procedure_of_blup](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/docs/images/procedure_of_blup.png "Procedure of BLUP")
 
 The DLM predictions via ECGs is revised with the personal best linear unbiased prediction (BLUP) on follow-up ECGs. The personal BLUP is calculated by the parameters from LMMs, the previous DLM predictions and the corresponding ground truth. The black box indicated the dynamic revision of DLM prediction. The detail of method and results are presented in:<br>
 
-  * Lou YS and Lin C, "Dynamic deep learning algorithm prediction for patients with multiple visits in electrocardiogram analysis", Submitted to journal in November 2021.
+  * YS Lou and C Lin, "Dynamic deep learning algorithm prediction for patients with multiple visits in electrocardiogram analysis", submitted to journal in November 2021.
     
 # Requirements
 
@@ -25,7 +25,7 @@ The example code can be found from ['code/dynamic_revision.R'](https://github.co
 
 The functions of constructing LMM, calculating BLUP, and dynamic revision can been found in ['code/personal_blup.R'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/code/personal_blup.R).
   
-# Data
+# Example data
   
   
   
