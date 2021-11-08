@@ -30,7 +30,7 @@ The function of constructing LMM, calculating BLUP, and dynamic revision can be 
 We use de-identified clinical data in the hospital as the example data. There are two data files, ['data/serum_potassium_data.csv'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/data/serum_potassium_data.csv) and ['data/ejection_fraction_data.csv'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/data/ejection_fraction_data.csv). See here for more information on the datasets.
 
   * The two independent comma-separated values (csv) files containing the columns
-    * "dataset": four subsets are development, tuning, internal validation, and external validation sets;
+    * "dataset": there are four subsets including development, tuning, internal validation, and external validation sets;
     * "exam_id": id used for internal usages;
     * "follow_up": the visit times of patients;
     * "diff_time": the difference time between the first examinations and follow-up examinations;
