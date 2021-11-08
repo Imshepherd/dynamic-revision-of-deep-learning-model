@@ -26,9 +26,17 @@ The example code can be found in ['code/dynamic_revision.R'](https://github.com/
 The function of constructing LMM, calculating BLUP, and dynamic revision can be found in ['code/personal_blup.R'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/code/personal_blup.R).
   
 # Example data
-  
-  
-  
+
+We use de-identified clinical data in the hospital as the example data. There are two data files, ['data/serum_potassium_data.csv'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/data/serum_potassium_data.csv) and ['data/ejection_fraction_data.csv'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/data/ejection_fraction_data.csv). See here for more information on the datasets.
+
+  * The two independent comma-separated values (csv) files containing the columns
+    * "dataset": four subsets are development, tuning, internal validation, and external validation sets;
+    * "exam_id": id used for internal usages;
+    * "follow_up": the visit times of patients;
+    * "diff_time": the difference time between the first examinations and follow-up examinations;
+    * "label": the corresponding annotations of serum potassium or ejection fraction;
+    * "DLM_direct_pred": the direct prediction of DLM via ECG;
+    * "DLM_dynamic_pred": ithe dynamic revision of DLM using personal BLUP;
   
 # How to cite
 
