@@ -131,7 +131,7 @@ final_p <- final_p + draw_plot(gg_p_ex, x = 0.490 + 0.027, y = 0, width = 0.465,
 
 print(final_p)
 dev.print(file = "docs/images/summary_of_performance.png", 
-          device = png, width = 640, height = 600)
+          device = png, width = 840, height = 700)
 # dev.off()
 
 
