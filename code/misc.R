@@ -121,7 +121,7 @@ plot_summary <- function(plot_data, title, y_lab = "AUC"){
   
   gg_p <- ggplot(plot_data, aes(x = x, y = y, fill = method)) +
           geom_bar(stat = "identity") +
-          geom_errorbar(aes(ymin = y_low, ymax= y_up), width = .4, position = position_dodge(.9)) +
+          geom_errorbar(aes(ymin = y_low, ymax = y_up), width = .4, position = position_dodge(.9)) +
           
           scale_y_continuous(limits = c(0, 1.97), 
                              breaks = c(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) * 1.65, 

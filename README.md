@@ -4,7 +4,7 @@ Dynamic revision of deep learning model (DLM) is a method that use personal pre-
 
 ![procedure_of_blup](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/docs/images/procedure_of_blup.png "Procedure of BLUP")
 
-The DLM predictions via ECGs is revised with the personal best linear unbiased prediction (BLUP) on follow-up ECGs. The personal BLUP is calculated by the parameters from LMMs, the previous DLM predictions, and the corresponding ground truth. The black box indicated the result of  the dynamic revision. The detail of method and results are presented in:<br>
+The DLM predictions via ECGs is revised with the personal best linear unbiased prediction (BLUP) on follow-up ECGs. The personal BLUP is calculated by the parameters from LMMs, the previous DLM predictions, and the previous ground truth. The black box indicated the result of  the dynamic revision. The detail of method and results are presented in:<br>
 
   * YS Lou and C Lin, "Dynamic deep learning algorithm prediction for patients with multiple visits in electrocardiogram analysis", submitted to journal in November 2021.
     
@@ -34,8 +34,8 @@ install.packages(package_url, repos = NULL, type = "source")
 ```
 
   * [cli](https://cran.r-project.org/web/packages/cli/index.html)
+  * [rlang](https://cran.r-project.org/web/packages/rlang/index.html)  
   * [pillar](https://cran.r-project.org/web/packages/pillar/index.html)
-  * [rlang](https://cran.r-project.org/web/packages/rlang/index.html)
   * [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)
   * [cowplot](https://cran.r-project.org/web/packages/cowplot/index.html)
 
@@ -61,7 +61,7 @@ An example script can be found in ['code/dynamic_revision.R'](https://github.com
 
 ![summary_of_performance](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/docs/images/summary_of_performance.png "Summary of performance.png")
 
-The function of constructing LMM and dynamic revision using BLUP can be found in ['code/personal_blup.R'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/code/personal_blup.R).
+The functions of constructing LMM and dynamic revision using BLUP can be found in ['code/personal_blup.R'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/code/personal_blup.R).
   
 # Example data
 
@@ -72,7 +72,7 @@ We use de-identified clinical data in the hospital as the example data. There ar
     * "exam_id": id used for internal usages;
     * "follow_up": the visit times of patients;
     * "diff_time": the difference hours between the first examinations and follow-up examinations;
-    * "label": the corresponding annotations of serum potassium or ejection fraction;
+    * "label": the corresponding annotations of serum potassium or ejection fraction with ECGs;
     * "DLM_direct_pred": the direct predictions of DLM via ECG;
     * "DLM_dynamic_pred": the dynamic revision of DLM predictions using personal BLUP;
   

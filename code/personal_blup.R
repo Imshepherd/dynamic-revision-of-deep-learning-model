@@ -50,7 +50,7 @@ dyna_revise_using_blup <- function(data, lmm_model,
     if (nrow(sub_data) >= 2){
       
       if (sort_time){
-        sub_data <- sub_data[order(sub_data[[time_var]]), ]
+        sub_data <- sub_data[order(sub_data[[time_var]], decreasing = FALSE), ]
       }
       
       # Add intercept

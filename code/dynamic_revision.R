@@ -22,21 +22,21 @@ ef_data <- read.csv("data/ejection_fraction_data.csv")
 k_dev_sample <- k_data[k_data[["dataset"]] %in% c("development", "tuning"), ]
 ef_dev_sample <- ef_data[ef_data[["dataset"]] %in% c("development", "tuning"), ]
 
-k_in_valid <- k_data[k_data$dataset == "internal_validation", ]
-k_ex_valid <- k_data[k_data$dataset == "external_validation", ]
+k_in_valid <- k_data[k_data[["dataset"]] == "internal_validation", ]
+k_ex_valid <- k_data[k_data[["dataset"]] == "external_validation", ]
 
-ef_in_valid <- ef_data[ef_data$dataset == "internal_validation", ]
-ef_ex_valid <- ef_data[ef_data$dataset == "external_validation", ]
+ef_in_valid <- ef_data[ef_data[["dataset"]] == "internal_validation", ]
+ef_ex_valid <- ef_data[ef_data[["dataset"]] == "external_validation", ]
 
 # Pre-process the development samples in development and tuning set
 
 k_subdata <- select_data_within_t(k_dev_sample, time_interval[["k"]])
 ef_subdata <- select_data_within_t(ef_dev_sample, time_interval[["ef"]])
 
-# Construct linear mixed model (LMM) with sample in tuning set
+# Construct linear mixed model (LMM) with samples in tuning set
 
-k_tuning <- k_subdata[k_subdata$dataset == "tuning", ]
-ef_tuning <- ef_subdata[ef_subdata$dataset == "tuning", ]
+k_tuning <- k_subdata[k_subdata[["dataset"]] == "tuning", ]
+ef_tuning <- ef_subdata[ef_subdata[["dataset"]] == "tuning", ]
 
 k_lmm <- construct_lmm(k_tuning)
 ef_lmm <- construct_lmm(ef_tuning)
@@ -119,9 +119,9 @@ gg_p_in <- add_significant(gg_p_in, plot_data_in, hypok_in_p, "hypok")
 gg_p_in <- add_significant(gg_p_in, plot_data_in, hyperk_in_p, "hyperk")
 gg_p_in <- add_significant(gg_p_in, plot_data_in, lvd_in_p, "lvd")
 
-gg_p_ex <- add_significant(gg_p_ex, plot_data_ex, hypok_in_p, "hypok")
-gg_p_ex <- add_significant(gg_p_ex, plot_data_ex, hyperk_in_p, "hyperk")
-gg_p_ex <- add_significant(gg_p_ex, plot_data_ex, lvd_in_p, "lvd")
+gg_p_ex <- add_significant(gg_p_ex, plot_data_ex, hypok_ex_p, "hypok")
+gg_p_ex <- add_significant(gg_p_ex, plot_data_ex, hyperk_ex_p, "hyperk")
+gg_p_ex <- add_significant(gg_p_ex, plot_data_ex, lvd_ex_p, "lvd")
 
 # Merge plots and export figure
 
