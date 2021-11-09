@@ -11,7 +11,7 @@ The DLM predictions via ECGs is revised with the personal best linear unbiased p
 # Requirements
 
   * [R (version 3.4.4)](https://www.r-project.org/) and [Rstudio (not necessary)](https://www.rstudio.com/)
-  * [Rtools35.exe](https://cran.r-project.org/bin/windows/Rtools/Rtools35.exe)
+  * [Rtools (Rtools35.exe)](https://cran.r-project.org/bin/windows/Rtools/history.html)
   
 You need to have `Rtools` installed to compile the package. Use the above link for the installation of `Rtools`.
   
@@ -38,7 +38,7 @@ install.packages(package_url, repos = NULL, type = "source")
   * [rlang](https://cran.r-project.org/web/packages/rlang/index.html)
   * [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)
 
-You need to have `ggplot2` and its dependencies installed to plot the performance, and you can install `ggplot2` and its dependencies  by running the following line in your R console:
+You need to have `ggplot2` and its dependencies installed to plot the summary of performance, and you can install `ggplot2` and its dependencies by running the following line in your R console:
   
 ```R
 package_url <- "https://cran.r-project.org/src/contrib/Archive/cli/cli_2.0.2.tar.gz"
@@ -61,7 +61,7 @@ The function of constructing LMM and dynamic revision using BLUP can be found in
   
 # Example data
 
-We use de-identified clinical data in the hospital as the example data. There are two data files, ['data/serum_potassium_data.csv'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/data/serum_potassium_data.csv) and ['data/ejection_fraction_data.csv'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/data/ejection_fraction_data.csv). See here for more information about the data.
+We use de-identified clinical data in the hospital as the example data. There are two data files, ['data/serum_potassium_data.csv'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/data/serum_potassium_data.csv) and ['data/ejection_fraction_data.csv'](https://github.com/Imshepherd/dynamic-revision-of-deep-learning-model/blob/main/data/ejection_fraction_data.csv). See here for more information about the data files.
 
   * The two independent comma-separated values (csv) files containing the columns
     * "dataset": four subsets include development, tuning, internal validation, and external validation sets;

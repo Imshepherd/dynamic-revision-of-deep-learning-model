@@ -89,14 +89,14 @@ lvd_ex_dynamic <- get_auroc(disease_cut[["lvd"]], ef_ex_valid, "DLM_dynamic_pred
 
 # Compare AUC
 
-hypok_in_p <- roc.test(hypok_in_direct[["roc_result"]], hypok_in_dynamic[["roc_result"]])$p.value
-hypok_ex_p <- roc.test(hypok_ex_direct[["roc_result"]], hypok_ex_dynamic[["roc_result"]])$p.value
+hypok_in_p <- roc.test(hypok_in_direct[["roc_result"]], hypok_in_dynamic[["roc_result"]])[["p.value"]]
+hypok_ex_p <- roc.test(hypok_ex_direct[["roc_result"]], hypok_ex_dynamic[["roc_result"]])[["p.value"]]
   
-hyperk_in_p <- roc.test(hyperk_in_direct[["roc_result"]], hyperk_in_dynamic[["roc_result"]])$p.value
-hyperk_ex_p <- roc.test(hyperk_ex_direct[["roc_result"]], hyperk_ex_dynamic[["roc_result"]])$p.value
+hyperk_in_p <- roc.test(hyperk_in_direct[["roc_result"]], hyperk_in_dynamic[["roc_result"]])[["p.value"]]
+hyperk_ex_p <- roc.test(hyperk_ex_direct[["roc_result"]], hyperk_ex_dynamic[["roc_result"]])[["p.value"]]
   
-lvd_in_p <- roc.test(lvd_in_direct[["roc_result"]], lvd_in_dynamic[["roc_result"]])$p.value
-lvd_ex_p <- roc.test(lvd_ex_direct[["roc_result"]], lvd_ex_dynamic[["roc_result"]])$p.value
+lvd_in_p <- roc.test(lvd_in_direct[["roc_result"]], lvd_in_dynamic[["roc_result"]])[["p.value"]]
+lvd_ex_p <- roc.test(lvd_ex_direct[["roc_result"]], lvd_ex_dynamic[["roc_result"]])[["p.value"]]
 
 # Pre-process plot data in internal and external validation set
 
@@ -129,7 +129,9 @@ final_p <- ggdraw()
 final_p <- final_p + draw_plot(gg_p_in, x = 0.000 + 0.027, y = 0, width = 0.465, height = 1)
 final_p <- final_p + draw_plot(gg_p_ex, x = 0.490 + 0.027, y = 0, width = 0.465, height = 1)
 
+print(final_p)
 dev.print(file = "docs/images/summary_of_performance.png", 
-          device = png, width = 800, height = 800)
+          device = png, width = 640, height = 600)
+# dev.off()
 
 

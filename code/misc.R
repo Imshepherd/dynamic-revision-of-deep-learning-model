@@ -140,16 +140,16 @@ plot_summary <- function(plot_data, title, y_lab = "AUC"){
              label = plot_data[,'txt'], size = 5, color = "black", angle = 90, fontface = 2) +
     
     annotate(geom = "line", x = c(0.5, 2.5), y = c(1.88, 1.88), size = 1) +
-    annotate(geom = "text", x = 1.5, y = 1.96, label = 'Hypokalemia', size = 5, fontface = 2) +
+    annotate(geom = "text", x = 1.5, y = 1.96, label = 'Hypokalemia', size = 4.1, fontface = 2) +
     
     annotate(geom = "line", x = c(3, 5), y = c(1.88, 1.88), size = 1) +
-    annotate(geom = "text", x = 4, y = 1.96, label = 'Hyperkalemia', size = 5, fontface = 2) +
+    annotate(geom = "text", x = 4, y = 1.96, label = 'Hyperkalemia', size = 4.1, fontface = 2) +
     
     annotate(geom = "line", x = c(5.5, 7.5), y = c(1.88, 1.88), size = 1) +
-    annotate(geom = "text", x = 6.5, y = 1.96, label = 'LVD', size = 5, fontface = 2) +
+    annotate(geom = "text", x = 6.5, y = 1.96, label = 'LVD', size = 4.1, fontface = 2) +
     
     theme_minimal() +
-    theme(plot.title = element_text(color = "#000000", size = 14, face = "bold.italic"),
+    theme(plot.title = element_text(color = "#000000", size = 16, face = "bold.italic"),
           legend.position = "none",
           panel.border = element_blank(),
           panel.grid.major = element_blank(),
@@ -158,8 +158,8 @@ plot_summary <- function(plot_data, title, y_lab = "AUC"){
           axis.ticks.x = element_blank(),
           axis.ticks.y = element_blank(),
           axis.title.y = element_text(size = 12, face = "bold"),
-          axis.text.x = element_text(angle = 90, hjust = 1, size = 10, face = "bold"),
-          axis.text.y = element_text(angle = 0, hjust = 1, size = 8, face = "bold"))
+          axis.text.x = element_text(angle = 90, hjust = 1, size = 14, face = "bold"),
+          axis.text.y = element_text(angle = 0, hjust = 1, size = 12, face = "bold"))
   
   return(gg_p)
 }
