@@ -37,8 +37,9 @@ install.packages(package_url, repos = NULL, type = "source")
   * [pillar](https://cran.r-project.org/web/packages/pillar/index.html)
   * [rlang](https://cran.r-project.org/web/packages/rlang/index.html)
   * [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)
+  * [cowplot](https://cran.r-project.org/web/packages/ggplot2/index.html)
 
-You need to have `ggplot2` and its dependencies installed to plot the summary of performance, and you can install `ggplot2` and its dependencies by running the following line in your R console:
+You need to have `ggplot2`, `cowplot`, and its dependencies installed to plot the summary of performance, and you can install these packages by running the following line in your R console:
   
 ```R
 package_url <- "https://cran.r-project.org/src/contrib/Archive/cli/cli_2.0.2.tar.gz"
@@ -48,6 +49,9 @@ install.packages(package_url, repos = NULL, type="source")
 package_url <- "https://cran.r-project.org/src/contrib/Archive/pillar/pillar_1.4.4.tar.gz"
 install.packages(package_url, repos = NULL, type="source")
 package_url <- "https://cran.r-project.org/src/contrib/Archive/ggplot2/ggplot2_3.3.3.tar.gz"
+install.packages(package_url,  repos = NULL, type = "source")
+
+package_url <- "https://cran.r-project.org/src/contrib/Archive/cowplot/cowplot_0.9.4.tar.gz"
 install.packages(package_url,  repos = NULL, type = "source")
 ```
 
