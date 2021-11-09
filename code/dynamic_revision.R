@@ -59,7 +59,7 @@ k_ex_valid <- limit_data_outlier(k_ex_valid, value_range[["k"]][["min"]], value_
 ef_in_valid <- limit_data_outlier(ef_in_valid, value_range[["ef"]][["min"]], value_range[["ef"]][["max"]])
 ef_ex_valid <- limit_data_outlier(ef_ex_valid, value_range[["ef"]][["min"]], value_range[["ef"]][["max"]])
 
-# Select the follow-up sample
+# Select the follow-up ECGs for evaluation.
 
 k_in_valid <- select_follow_up_data(k_in_valid)
 k_ex_valid <- select_follow_up_data(k_ex_valid)
@@ -87,7 +87,7 @@ lvd_in_dynamic <- get_auroc(disease_cut[["lvd"]], ef_in_valid, "DLM_dynamic_pred
 lvd_ex_direct <- get_auroc(disease_cut[["lvd"]], ef_ex_valid, "DLM_direct_pred", direction = "<")
 lvd_ex_dynamic <- get_auroc(disease_cut[["lvd"]], ef_ex_valid, "DLM_dynamic_pred", direction = "<")
 
-# Compare AUC
+# Compare AUC on follow-up ECGs.
 
 hypok_in_p <- roc.test(hypok_in_direct[["roc_result"]], hypok_in_dynamic[["roc_result"]])[["p.value"]]
 hypok_ex_p <- roc.test(hypok_ex_direct[["roc_result"]], hypok_ex_dynamic[["roc_result"]])[["p.value"]]
@@ -115,13 +115,13 @@ gg_p_ex <- plot_summary(plot_data_ex, "External validation set")
 
 # Plot significant line in internal and external validation set
 
-gg_p_in <- plot_significant(gg_p_in, plot_data_in, hypok_in_p, "hypok")
-gg_p_in <- plot_significant(gg_p_in, plot_data_in, hyperk_in_p, "hyperk")
-gg_p_in <- plot_significant(gg_p_in, plot_data_in, lvd_in_p, "lvd")
+gg_p_in <- add_significant(gg_p_in, plot_data_in, hypok_in_p, "hypok")
+gg_p_in <- add_significant(gg_p_in, plot_data_in, hyperk_in_p, "hyperk")
+gg_p_in <- add_significant(gg_p_in, plot_data_in, lvd_in_p, "lvd")
 
-gg_p_ex <- plot_significant(gg_p_ex, plot_data_ex, hypok_in_p, "hypok")
-gg_p_ex <- plot_significant(gg_p_ex, plot_data_ex, hyperk_in_p, "hyperk")
-gg_p_ex <- plot_significant(gg_p_ex, plot_data_ex, lvd_in_p, "lvd")
+gg_p_ex <- add_significant(gg_p_ex, plot_data_ex, hypok_in_p, "hypok")
+gg_p_ex <- add_significant(gg_p_ex, plot_data_ex, hyperk_in_p, "hyperk")
+gg_p_ex <- add_significant(gg_p_ex, plot_data_ex, lvd_in_p, "lvd")
 
 # Merge plots and export figure
 

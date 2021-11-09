@@ -51,10 +51,10 @@ limit_data_outlier <- function(data, min_value, max_value, label_var = "label",
   data[data[[label_var]] > max_value, label_var] <- max_value
   
   data[which(isTRUE(data[[pred_var]] < min_value)), pred_var] <- min_value
-  data[which(isTRUE(data[[pred_var]] < min_value)), pred_var] <- max_value
+  data[which(isTRUE(data[[pred_var]] > max_value)), pred_var] <- max_value
   
   data[which(isTRUE(data[[revise_var]] < min_value)), revise_var] <- min_value
-  data[which(isTRUE(data[[revise_var]] < min_value)), revise_var] <- max_value
+  data[which(isTRUE(data[[revise_var]] > max_value)), revise_var] <- max_value
   
   return(data)
 }
@@ -120,51 +120,51 @@ plot_summary <- function(plot_data, title, y_lab = "AUC"){
   names(col_list) <- c('DLM (directly)', 'DLM (dynamic)')
   
   gg_p <- ggplot(plot_data, aes(x = x, y = y, fill = method)) +
-    geom_bar(stat = "identity") +
-    geom_errorbar(aes(ymin = y_low, ymax= y_up), width = .4, position = position_dodge(.9)) +
-    
-    scale_y_continuous(limits = c(0, 1.97), 
-                       breaks = c(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) * 1.65, 
-                       labels = function(x){(c(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) + 0.4) %>% sprintf("%.1f", .)}) +
-    scale_x_continuous(name = '', breaks = plot_data[,'x'] - 0.15, 
-                       labels = plot_data[['method']], limits = c(0.5, 7.5)) + 
-    
-    ggtitle(title) +
-    xlab('') + 
-    ylab(y_lab) + 
-    
-    scale_fill_manual(values = col_list) +
-    
-    annotate(geom = "text", 
-             x = plot_data[,'x'], y = 1.52,
-             label = plot_data[,'txt'], size = 5, color = "black", angle = 90, fontface = 2) +
-    
-    annotate(geom = "line", x = c(0.5, 2.5), y = c(1.88, 1.88), size = 1) +
-    annotate(geom = "text", x = 1.5, y = 1.96, label = 'Hypokalemia', size = 4.1, fontface = 2) +
-    
-    annotate(geom = "line", x = c(3, 5), y = c(1.88, 1.88), size = 1) +
-    annotate(geom = "text", x = 4, y = 1.96, label = 'Hyperkalemia', size = 4.1, fontface = 2) +
-    
-    annotate(geom = "line", x = c(5.5, 7.5), y = c(1.88, 1.88), size = 1) +
-    annotate(geom = "text", x = 6.5, y = 1.96, label = 'LVD', size = 4.1, fontface = 2) +
-    
-    theme_minimal() +
-    theme(plot.title = element_text(color = "#000000", size = 16, face = "bold.italic"),
-          legend.position = "none",
-          panel.border = element_blank(),
-          panel.grid.major = element_blank(),
-          panel.grid.minor = element_blank(),
-          panel.background = element_blank(),
-          axis.ticks.x = element_blank(),
-          axis.ticks.y = element_blank(),
-          axis.title.y = element_text(size = 12, face = "bold"),
-          axis.text.x = element_text(angle = 90, hjust = 1, size = 14, face = "bold"),
-          axis.text.y = element_text(angle = 0, hjust = 1, size = 12, face = "bold"))
+          geom_bar(stat = "identity") +
+          geom_errorbar(aes(ymin = y_low, ymax= y_up), width = .4, position = position_dodge(.9)) +
+          
+          scale_y_continuous(limits = c(0, 1.97), 
+                             breaks = c(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) * 1.65, 
+                             labels = function(x){(c(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) + 0.4) %>% sprintf("%.1f", .)}) +
+          scale_x_continuous(name = '', breaks = plot_data[,'x'] - 0.15, 
+                             labels = plot_data[['method']], limits = c(0.5, 7.5)) + 
+          
+          ggtitle(title) +
+          xlab('') + 
+          ylab(y_lab) + 
+          
+          scale_fill_manual(values = col_list) +
+          
+          annotate(geom = "text", 
+                   x = plot_data[,'x'], y = 1.52,
+                   label = plot_data[,'txt'], size = 5, color = "black", angle = 90, fontface = 2) +
+          
+          annotate(geom = "line", x = c(0.5, 2.5), y = c(1.88, 1.88), size = 1) +
+          annotate(geom = "text", x = 1.5, y = 1.96, label = 'Hypokalemia', size = 4.1, fontface = 2) +
+          
+          annotate(geom = "line", x = c(3, 5), y = c(1.88, 1.88), size = 1) +
+          annotate(geom = "text", x = 4, y = 1.96, label = 'Hyperkalemia', size = 4.1, fontface = 2) +
+          
+          annotate(geom = "line", x = c(5.5, 7.5), y = c(1.88, 1.88), size = 1) +
+          annotate(geom = "text", x = 6.5, y = 1.96, label = 'LVD', size = 4.1, fontface = 2) +
+          
+          theme_minimal() +
+          theme(plot.title = element_text(color = "#000000", size = 16, face = "bold.italic"),
+                legend.position = "none",
+                panel.border = element_blank(),
+                panel.grid.major = element_blank(),
+                panel.grid.minor = element_blank(),
+                panel.background = element_blank(),
+                axis.ticks.x = element_blank(),
+                axis.ticks.y = element_blank(),
+                axis.title.y = element_text(size = 12, face = "bold"),
+                axis.text.x = element_text(angle = 90, hjust = 1, size = 14, face = "bold"),
+                axis.text.y = element_text(angle = 0, hjust = 1, size = 12, face = "bold"))
   
   return(gg_p)
 }
 
-plot_significant <- function(gg_p, plot_data, p_value, disease_var){
+add_significant <- function(gg_p, plot_data, p_value, disease_var){
   
   if (p_value < 0.05){
     
