@@ -6,7 +6,7 @@ Dynamic revision of deep learning model (DLM) is a method that use personal pre-
 
 The DLM predictions via ECGs is revised with the personal best linear unbiased prediction (BLUP) on follow-up ECGs. The personal BLUP is calculated by the parameters from LMMs, the previous DLM predictions, and the previous ground truth. The black box indicated the result of  the dynamic revision. The detail of method and results are presented in:<br>
 
-  * YS Lou and C Lin, "Dynamic deep learning algorithm prediction for patients with multiple visits in electrocardiogram analysis", submitted to npj Digital Medicine in November 2021.
+  * YS Lou and C Lin, "Dynamic deep learning algorithm prediction for patients with multiple visits in electrocardiogram analysis", submitted to Bioinformatics in November 2021.
     
 # Requirements
 
